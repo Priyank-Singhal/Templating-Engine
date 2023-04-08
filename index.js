@@ -14,6 +14,22 @@ const generateData = async () => {
     return data;
 };
 
+var pageEndpoints = [
+    '/page2', '/page3', '/page4', '/page5', '/page6', '/page7', '/page8', '/page9', '/page10'
+];
+pageEndpoints.forEach(function (name) {
+    app.get(name, async (req, res) => {
+        const data = await generateData();
+        res.render('home', {
+            activity: data.activity,
+            key: data.key,
+            price: data.price,
+            accessibility: data.accessibility,
+            type: data.type
+        });
+    });
+});
+
 app.get('/', async (req, res) => {
     const data = await generateData();
     res.render('home', {
@@ -22,7 +38,7 @@ app.get('/', async (req, res) => {
         price: data.price,
         accessibility: data.accessibility,
         type: data.type
-     });
+    });
 });
 
 const server = app.listen(4000, function () {
