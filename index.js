@@ -15,7 +15,7 @@ const generateData = async () => {
 };
 
 var pageEndpoints = [
-    '/page2', '/page3', '/page4', '/page5', '/page6', '/page7', '/page8', '/page9', '/page10'
+    '/', '/page1', '/page2', '/page3', '/page4', '/page5', '/page6', '/page7', '/page8', '/page9', '/page10'
 ];
 pageEndpoints.forEach(function (name) {
     app.get(name, async (req, res) => {
@@ -27,17 +27,6 @@ pageEndpoints.forEach(function (name) {
             accessibility: data.accessibility,
             type: data.type
         });
-    });
-});
-
-app.get('/', async (req, res) => {
-    const data = await generateData();
-    res.render('home', {
-        activity: data.activity,
-        key: data.key,
-        price: data.price,
-        accessibility: data.accessibility,
-        type: data.type
     });
 });
 
