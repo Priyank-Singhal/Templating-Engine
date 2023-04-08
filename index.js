@@ -21,6 +21,7 @@ pageEndpoints.forEach(function (name) {
     app.get(name, async (req, res) => {
         const data = await generateData();
         res.render('home', {
+            title: name === '/' ? 'Home Page' : `Page ${name.charAt(name.length - 1)}`,
             activity: data.activity,
             key: data.key,
             price: data.price,
