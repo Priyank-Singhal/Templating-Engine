@@ -5,6 +5,7 @@ const ejs = require('ejs');
 
 // Set EJS as templating engine
 app.set('view engine', 'ejs');
+app.set('views', `${__dirname}/views`);
 app.use(express.static(__dirname + '/public'));
 
 const generateData = async () => {
